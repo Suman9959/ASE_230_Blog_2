@@ -1,5 +1,5 @@
 <?php 
-$authors = [
+$authors = 
     [
         'member1' => 'Jason Sand',
         'member2' => 'Tyler Smith',
