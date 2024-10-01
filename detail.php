@@ -1,10 +1,9 @@
 <?php
 
-include 'read_json.php';
-include 'read_csv.php';
+include 'utils.php'; 
 
 
-$posts = readPostsFromJSON('posts.json');
+$posts = readPostsFromJSON('data/posts.json');
 
 
 // Function to display all blog post titles

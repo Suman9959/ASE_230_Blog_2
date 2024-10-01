@@ -1,9 +1,8 @@
 <?php
+include 'utils.php'; // Include utils.php to use its functions
 
-include 'read_json.php';
-
-
-$posts = readPostsFromJSON('posts.json');
+// Function to load posts from JSON file
+$posts = loadPostsFromJSON('data/posts.json');
 
 // Function to display all blog post titles as links
 function displayPosts($posts) {
@@ -29,6 +28,7 @@ function displayPosts($posts) {
 <body>
     <div class="container">
         <h1 class="my-4">Blog Posts</h1>
+        <a href="upload.php" class="btn btn-success mb-3">Make Post</a>
         <?php displayPosts($posts); ?>
     </div>
 </body>

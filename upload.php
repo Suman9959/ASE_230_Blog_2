@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $date = date("Y-m-d"); // Set current date automatically
 
     // Load existing posts
-    $filename = 'posts.json';
+    $filename = 'data/posts.json';
     $posts = loadPostsFromJSON($filename);
 
     // Add new post to the array
