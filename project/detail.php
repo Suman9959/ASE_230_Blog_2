@@ -1,30 +1,13 @@
 <?php
-// Blog posts array
-$posts = [
-    [
-        'title' => 'First Blog Post',
-        'content' => 'This is the content of the first blog post.',
-        'author' => 'Author 1',
-        'date' => '2024-09-17'
-    ],
-    [
-        'title' => 'Second Blog Post',
-        'content' => 'This is the content of the second blog post.',
-        'author' => 'Author 2',
-        'date' => '2024-09-16'
-    ],
-    [
-        'title' => 'Third Blog Post',
-        'content' => 'This is the content of the third blog post.',
-        'author' => 'Author 3',
-        'date' => '2024-09-15'
-    ]
-];
 
-// Function to retrieve a single post by its ID
-function getPost($posts, $post_id) {
-    return isset($posts[$post_id]) ? $posts[$post_id] : null;
-}
+include 'read_json.php';
+include 'read_csv.php';
+
+
+$posts = readPostsFromJSON('posts.json');
+
+
+// Function to display all blog post titles
 
 if (isset($_GET['post_id'])) {
     $post_id = $_GET['post_id'];
@@ -35,6 +18,12 @@ if (isset($_GET['post_id'])) {
         $content = $post['content'];
         $author = $post['author'];
         $date = $post['date'];
+
+        // Update visitor count
+        updateVisitorCount('visitors.csv', $post_id);
+
+        // Get updated visitor count
+        $visitor_count = getVisitorCount('visitors.csv', $post_id);
     } else {
         $error = "Post not found.";
     }
@@ -42,6 +31,8 @@ if (isset($_GET['post_id'])) {
     $error = "No post specified.";
 }
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">

@@ -1,25 +1,9 @@
 <?php
-// Blog posts array
-$posts = [
-    [
-        'title' => 'First Blog Post',
-        'content' => 'This is the content of the first blog post.',
-        'author' => 'Author 1',
-        'date' => '2024-09-17'
-    ],
-    [
-        'title' => 'Second Blog Post',
-        'content' => 'This is the content of the second blog post.',
-        'author' => 'Author 2',
-        'date' => '2024-09-16'
-    ],
-    [
-        'title' => 'Third Blog Post',
-        'content' => 'This is the content of the third blog post.',
-        'author' => 'Author 3',
-        'date' => '2024-09-15'
-    ]
-];
+
+include 'read_json.php';
+
+
+$posts = readPostsFromJSON('posts.json');
 
 // Function to display all blog post titles as links
 function displayPosts($posts) {
